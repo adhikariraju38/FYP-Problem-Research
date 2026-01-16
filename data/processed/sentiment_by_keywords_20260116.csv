@@ -1,0 +1,6 @@
+,category,with_keyword_n,with_keyword_mean,with_keyword_std,without_keyword_n,without_keyword_mean,without_keyword_std,difference
+0,explicit_content,210,-0.143,0.568,1213,-0.014,0.595,-0.129
+1,age_concerns,405,0.002,0.587,1018,-0.047,0.595,0.049
+2,mental_health,130,-0.011,0.633,1293,-0.035,0.589,0.024
+3,algorithm,457,0.088,0.612,966,-0.09,0.576,0.178
+4,parental_controls,399,-0.186,0.557,1024,0.026,0.596,-0.212

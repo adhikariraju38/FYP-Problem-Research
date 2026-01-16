@@ -1,0 +1,104 @@
+# =============================================================================
+# Git Ignore for: The "For You" Page Problem Research
+# =============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data files (too large for git)
+data/raw/*.csv
+data/raw/*.json
+data/processed/*_large_*.csv
+*.pkl
+*.pickle
+
+# Keep directory structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Logs
+*.log
+pipeline_log_*.txt
+
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+
+# LaTeX output (keep source, ignore compiled)
+paper/latex/*.pdf
+paper/latex/arxiv_package/
+paper/latex/arxiv_submission.tar.gz
+
+# But keep figures
+!outputs/figures/*.pdf
+!outputs/figures/*.png
+
+# API keys and secrets
+.env
+*.env
+credentials.json
+secrets.json
+
+# Large model files
+*.model
+*.state
+*.npy
+outputs/topics/*.state
+outputs/topics/*.npy
+outputs/topics/*.id2word
+
+# Temporary files
+tmp/
+temp/
+*.tmp

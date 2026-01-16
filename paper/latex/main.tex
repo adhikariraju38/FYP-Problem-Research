@@ -1,0 +1,897 @@
+% =============================================================================
+% The "For You" Page Problem: Explicit Content Exposure and Mental Health
+% Concerns in Short-Form Video Platforms
+% =============================================================================
+% A Secondary Data Analysis of User Reviews and Social Media Discourse
+% Target: Computers in Human Behavior / Cyberpsychology, Behavior, and Social Networking
+% =============================================================================
+
+\documentclass[12pt,a4paper]{article}
+
+% =============================================================================
+% PACKAGES
+% =============================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}                    % Times New Roman font
+\usepackage[margin=1in]{geometry}     % 1-inch margins
+\usepackage{setspace}                 % Line spacing
+\usepackage{graphicx}                 % Figures
+\usepackage{float}                    % Figure placement
+\usepackage{booktabs}                 % Professional tables
+\usepackage{array}                    % Table formatting
+\usepackage{multirow}                 % Multi-row cells
+\usepackage{longtable}                % Tables spanning pages
+\usepackage{tabularx}                 % Flexible tables
+\usepackage{amsmath}                  % Math symbols
+\usepackage{hyperref}                 % Hyperlinks
+\usepackage{xcolor}                   % Colors
+\usepackage{caption}                  % Caption formatting
+\usepackage{subcaption}               % Subfigures
+\usepackage{natbib}                   % Citations (author-year)
+\usepackage{rotating}                 % Rotate tables/figures
+\usepackage{pdflscape}                % Landscape pages
+\usepackage{enumitem}                 % List formatting
+\usepackage{textcomp}                 % Text symbols
+\usepackage{soul}                     % Highlighting
+\usepackage{appendix}                 % Appendix formatting
+
+% =============================================================================
+% CONFIGURATION
+% =============================================================================
+\doublespacing                        % Double spacing for submission
+\setlength{\parindent}{0.5in}         % Paragraph indent
+\bibliographystyle{apalike}           % APA-like citations
+
+% Hyperlink colors
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% Figure path - adjust this to match your directory structure
+\graphicspath{{../../outputs/figures/}}
+
+% Table column types
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+% =============================================================================
+% TITLE AND AUTHORS
+% =============================================================================
+\title{\textbf{The ``For You'' Page Problem: Explicit Content Exposure and Mental Health Concerns in Short-Form Video Platforms}\\[0.5cm]
+\large A Secondary Data Analysis of User Reviews and Social Media Discourse}
+
+\author{
+    [Author Name]$^{1}$\\[0.2cm]
+    \small $^{1}$Independent Researcher, Nepal\\[0.2cm]
+    \small Correspondence: [email@example.com]
+}
+
+\date{January 2026}
+
+% =============================================================================
+% DOCUMENT BEGIN
+% =============================================================================
+\begin{document}
+
+\maketitle
+
+% =============================================================================
+% ABSTRACT
+% =============================================================================
+\begin{abstract}
+\noindent
+\textbf{Background:} Short-form video platforms (TikTok, Instagram Reels, YouTube Shorts) have experienced unprecedented growth, particularly among younger demographics. However, concerns regarding algorithmic exposure to inappropriate content and mental health impacts remain understudied, especially in developing digital economies.
+
+\textbf{Objective:} This study examines public discourse surrounding explicit content exposure, age-related concerns, and mental health implications of short-form video platforms through large-scale secondary data analysis.
+
+\textbf{Methods:} We collected 221,764 user-generated records from five sources: Google Play Store reviews (160,000), Apple App Store reviews (12,086), Reddit posts (48,606), Trustpilot reviews (800), and YouTube comments (18,539). After relevance filtering and deduplication, 8,435 records mentioning content concerns, age-related issues, or mental health were analyzed using VADER sentiment analysis and Latent Dirichlet Allocation (LDA) topic modeling.
+
+\textbf{Results:} Analysis revealed highly polarized sentiment (45.0\% negative, 42.3\% positive, 12.7\% neutral) with platform-specific variations. Instagram exhibited the most negative sentiment ($M = -0.096$), while TikTok showed slightly positive sentiment ($M = 0.025$) despite receiving the most discussion (49.6\% of relevant content). Five dominant themes emerged: (1) child safety and parental concerns, (2) algorithmic content recommendation issues, (3) personal usage experiences, (4) account moderation and banning, and (5) mental health and attention span concerns.
+
+\textbf{Conclusions:} Public discourse reveals significant concerns about algorithmic content exposure affecting minors, with platform-specific sentiment patterns suggesting differential user experiences. The findings highlight the need for improved content moderation, transparent algorithmic practices, and age-appropriate safeguards across short-form video platforms.
+
+\vspace{0.3cm}
+\noindent\textbf{Keywords:} TikTok, Instagram Reels, YouTube Shorts, content moderation, algorithmic recommendation, mental health, child safety, sentiment analysis, topic modeling
+\end{abstract}
+
+\newpage
+
+% =============================================================================
+% 1. INTRODUCTION
+% =============================================================================
+\section{Introduction}
+
+\subsection{Background}
+
+The proliferation of short-form video content has fundamentally transformed digital media consumption patterns over the past five years. Platforms such as TikTok, Instagram Reels, YouTube Shorts, and Facebook Reels have accumulated billions of users worldwide, with particularly high adoption rates among adolescents and young adults \citep{anderson2023teens}. These platforms employ sophisticated algorithmic recommendation systems---commonly referred to as ``For You'' pages (FYP)---that curate personalized content feeds based on user behavior, engagement patterns, and demographic signals.
+
+While these algorithms optimize for user engagement and platform retention, growing concerns have emerged regarding their potential to expose users, particularly minors, to inappropriate, explicit, or harmful content \citep{nguyen2025feeds}. The landmark meta-analysis by \citet{nguyen2025feeds}, encompassing 98,299 participants across 71 studies, identified content-specific effects as a critical research gap in understanding social media's psychological impacts.
+
+The rapid rise of short-form video platforms represents a paradigm shift in content consumption. TikTok alone reported over 1.5 billion monthly active users in 2024, with approximately 60\% aged between 13-24 years \citep{datareportal2024}. This demographic concentration raises particular concerns regarding content appropriateness and developmental impacts.
+
+\subsection{The Research Gap}
+
+Despite extensive research on social media's general effects on mental health, several gaps persist:
+
+\begin{enumerate}[leftmargin=*, itemsep=0.5em]
+    \item \textbf{Content-Specific Analysis:} Most studies examine platform usage broadly rather than specific content exposure patterns \citep{valkenburg2022social}
+    \item \textbf{Algorithmic Concerns:} Limited research addresses how recommendation algorithms specifically contribute to inappropriate content exposure \citep{ribeiro2020auditing}
+    \item \textbf{Geographic Context:} Research from developing digital economies, particularly South Asia, remains scarce \citep{pew2023global}
+    \item \textbf{Multi-Platform Comparison:} Few studies compare user concerns across competing short-form video platforms
+\end{enumerate}
+
+\subsection{Research Questions}
+
+This study addresses the following research questions:
+
+\begin{itemize}[leftmargin=*, itemsep=0.3em]
+    \item[\textbf{RQ1:}] What is the overall sentiment of public discourse regarding explicit content and safety concerns on short-form video platforms?
+    \item[\textbf{RQ2:}] How do sentiment patterns differ across platforms (TikTok, Instagram, YouTube, Facebook)?
+    \item[\textbf{RQ3:}] What are the dominant themes in user-generated content discussing short-form video platform concerns?
+    \item[\textbf{RQ4:}] What specific concerns do users express regarding children, algorithms, and mental health impacts?
+\end{itemize}
+
+\subsection{Contribution}
+
+This study contributes to the literature by:
+\begin{itemize}[leftmargin=*, itemsep=0.3em]
+    \item Providing large-scale analysis of 221,764 user-generated records across multiple platforms
+    \item Identifying platform-specific sentiment patterns related to content concerns
+    \item Extracting dominant discourse themes through unsupervised topic modeling
+    \item Offering empirical evidence to inform platform policy and parental guidance
+\end{itemize}
+
+% =============================================================================
+% 2. LITERATURE REVIEW
+% =============================================================================
+\section{Literature Review}
+
+\subsection{Short-Form Video Platforms and Youth}
+
+Short-form video platforms have become the dominant form of social media engagement among Generation Z and younger millennials. According to the Common Sense Media census, teens spend an average of 4.8 hours daily on screen media, with video content comprising the largest share \citep{rideout2022common}. The ``endless scroll'' design and algorithmic personalization create highly engaging experiences that have raised concerns about compulsive use patterns \citep{alter2017irresistible}.
+
+\subsection{Algorithmic Content Curation}
+
+The ``For You'' page algorithm represents a significant departure from traditional social media feeds. Unlike chronological or friend-based content delivery, FYP algorithms prioritize content predicted to maximize engagement, regardless of creator-viewer relationships \citep{tiktok2023safety}. This approach has been criticized for creating ``filter bubbles'' and potentially accelerating exposure to progressively extreme or inappropriate content \citep{pariser2011filter, ribeiro2020auditing}.
+
+Research by \citet{bakshy2015exposure} demonstrated that algorithmic curation significantly shapes content exposure patterns, though the specific mechanisms vary across platforms. The opacity of these algorithms has drawn regulatory scrutiny and public concern \citep{gorwa2020algorithmic}.
+
+\subsection{Mental Health Implications}
+
+Recent research has documented associations between short-form video consumption and various psychological outcomes. Table~\ref{tab:literature_comparison} summarizes key findings from major studies in the field.
+
+\begin{table}[H]
+\centering
+\caption{Comparison with Prior Research on Social Media and Mental Health}
+\label{tab:literature_comparison}
+\small
+\begin{tabular}{L{2.5cm}L{2cm}C{1.5cm}L{3cm}L{3.5cm}}
+\toprule
+\textbf{Study} & \textbf{Platform(s)} & \textbf{N} & \textbf{Method} & \textbf{Key Finding} \\
+\midrule
+\citet{nguyen2025feeds} & Multiple & 98,299 & Meta-analysis & Small negative effect ($r = -0.08$) on well-being \\
+\addlinespace
+\citet{twenge2018increases} & General SM & 506,820 & Survey analysis & Increased depression after 2010, linked to SM \\
+\addlinespace
+\citet{orben2019association} & General SM & 355,358 & Large-scale survey & Effect size comparable to eating potatoes \\
+\addlinespace
+\citet{kelly2019social} & Multiple & 10,904 & Cohort study & SM use linked to poor sleep, cyberbullying \\
+\addlinespace
+\citet{coyne2020does} & General SM & 500 & 8-year longitudinal & No significant effect on depression/anxiety \\
+\addlinespace
+\citet{su2021fmri} & TikTok & 40 & fMRI study & Reward system activation during FYP viewing \\
+\addlinespace
+\textbf{This Study} & TikTok, IG, YT, FB & 8,435 & NLP/Sentiment & 45\% negative sentiment, platform differences \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Key documented concerns include:
+
+\begin{itemize}[leftmargin=*, itemsep=0.3em]
+    \item \textbf{Attention span:} Studies suggest that rapid-fire content consumption may impact sustained attention capabilities \citep{su2021fmri}
+    \item \textbf{Body image:} Exposure to idealized content correlates with body dissatisfaction, particularly among adolescent females \citep{fardouly2022social, tiggemann2018media}
+    \item \textbf{Addictive patterns:} The infinite scroll and variable reward mechanisms exhibit similarities to gambling addiction models \citep{montag2021addictive, andreassen2016bergen}
+\end{itemize}
+
+\subsection{Content Moderation Challenges}
+
+Platform content moderation faces inherent tensions between user expression and harmful content prevention, algorithmic efficiency and human oversight, global standards and cultural context variability, and age verification and privacy concerns \citep{gillespie2018custodians}. The scale of content uploaded daily---TikTok alone processes millions of videos---makes comprehensive human review infeasible, leading to increased reliance on automated systems with known limitations \citep{gorwa2020algorithmic}.
+
+\subsection{Theoretical Framework}
+
+This study draws upon multiple theoretical perspectives (Table~\ref{tab:theoretical_framework}):
+
+\begin{table}[H]
+\centering
+\caption{Theoretical Framework for Understanding Short-Form Video Effects}
+\label{tab:theoretical_framework}
+\small
+\begin{tabular}{L{3.5cm}L{5cm}L{5cm}}
+\toprule
+\textbf{Theory} & \textbf{Core Concept} & \textbf{Application to This Study} \\
+\midrule
+Social Learning Theory \citep{bandura1977social} & Behavior learned through observation and modeling & Users model attitudes/behaviors seen in explicit content \\
+\addlinespace
+Uses \& Gratifications \citep{katz1973uses} & Media use driven by specific needs & Different age groups seek content for different reasons \\
+\addlinespace
+Cultivation Theory \citep{gerbner1998cultivation} & Long-term exposure shapes worldview & Repeated explicit content normalizes inappropriate material \\
+\addlinespace
+Media Effects Model & Direct and indirect pathways of influence & Sentiment reflects perceived effects on users \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =============================================================================
+% 3. METHODOLOGY
+% =============================================================================
+\section{Methodology}
+
+\subsection{Research Design}
+
+This study employed a cross-sectional, secondary data analysis approach, examining publicly available user-generated content from multiple online sources. This methodology was selected for several reasons:
+
+\begin{enumerate}[leftmargin=*, itemsep=0.3em]
+    \item \textbf{Ecological validity:} User reviews and social media posts represent organic, unsolicited expressions of platform experiences
+    \item \textbf{Scale:} Secondary data enables analysis of substantially larger samples than primary survey research
+    \item \textbf{Accessibility:} Public data sources eliminate the ethical complexities of directly researching minor populations
+    \item \textbf{Cost-effectiveness:} Zero-budget research approach suitable for independent researchers
+\end{enumerate}
+
+\subsection{Data Sources}
+
+Data were collected from five publicly accessible sources between January 2026 (Table~\ref{tab:data_sources}):
+
+\begin{table}[H]
+\centering
+\caption{Data Sources and Collection Methods}
+\label{tab:data_sources}
+\begin{tabular}{llll}
+\toprule
+\textbf{Source} & \textbf{Type} & \textbf{Collection Method} & \textbf{Records} \\
+\midrule
+Google Play Store & App reviews & google-play-scraper API & 160,000 \\
+Apple App Store & App reviews & RSS feed scraping & 12,086 \\
+Reddit & Forum posts & Public JSON API & 48,606 \\
+Trustpilot & Platform reviews & Web scraping & 800 \\
+YouTube & Video comments & youtube-comment-downloader & 18,539 \\
+\midrule
+\textbf{Total} & & & \textbf{221,764} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Target Applications}
+
+Reviews and discussions were collected for four major short-form video platforms:
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item TikTok (com.zhiliaoapp.musically)
+    \item Instagram (com.instagram.android)
+    \item YouTube (com.google.android.youtube)
+    \item Facebook (com.facebook.katana)
+\end{itemize}
+
+\subsection{Keyword Filtering}
+
+To identify relevant content, records were filtered using keyword matching across five categories (Table~\ref{tab:keywords}):
+
+\begin{table}[H]
+\centering
+\caption{Keyword Categories for Relevance Filtering}
+\label{tab:keywords}
+\small
+\begin{tabular}{lL{10cm}}
+\toprule
+\textbf{Category} & \textbf{Keywords} \\
+\midrule
+Explicit Content & inappropriate, explicit, sexual, nudity, nude, pornography, porn, naked, nsfw, adult content \\
+\addlinespace
+Age Concerns & kid, child, children, teen, teenager, minor, young, daughter, son, parent, underage \\
+\addlinespace
+Mental Health & addiction, addicted, mental health, depression, anxiety, brain rot, attention span, dopamine, toxic \\
+\addlinespace
+Algorithm & algorithm, fyp, for you page, recommended, keeps showing, feed, suggestion \\
+\addlinespace
+Parental Controls & parental, control, filter, restrict, block, protect, safety, ban \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Data Processing Pipeline}
+
+The data processing pipeline included:
+
+\begin{enumerate}[leftmargin=*, itemsep=0.3em]
+    \item \textbf{Standardization:} Column harmonization across heterogeneous data sources
+    \item \textbf{Deduplication:} Removal of duplicate records based on text content
+    \item \textbf{Relevance filtering:} Retention of records containing at least one keyword
+    \item \textbf{Text cleaning:} Removal of URLs, special characters, and excessive whitespace
+    \item \textbf{Language detection:} Identification of primary language using langdetect
+\end{enumerate}
+
+\textbf{Final analytical sample:} 8,435 relevant records (3.8\% relevance rate)
+
+\subsection{Sentiment Analysis}
+
+Sentiment analysis was conducted using VADER (Valence Aware Dictionary and sEntiment Reasoner), a lexicon and rule-based sentiment analysis tool specifically designed for social media text \citep{hutto2014vader}. VADER produces a compound score ranging from $-1$ (most negative) to $+1$ (most positive).
+
+Sentiment categories were assigned as follows:
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item \textbf{Positive:} compound score $> 0.05$
+    \item \textbf{Neutral:} $-0.05 \leq$ compound score $\leq 0.05$
+    \item \textbf{Negative:} compound score $< -0.05$
+\end{itemize}
+
+\subsection{Topic Modeling}
+
+Latent Dirichlet Allocation (LDA) was employed to identify latent themes within the corpus \citep{blei2003latent}. The modeling process included:
+
+\begin{enumerate}[leftmargin=*, itemsep=0.3em]
+    \item \textbf{Preprocessing:} Tokenization, stopword removal, lemmatization
+    \item \textbf{Dictionary creation:} Filtering terms appearing in $<$5 or $>$50\% of documents
+    \item \textbf{Model selection:} Coherence score optimization across $k = \{5, 7, 10, 12, 15\}$ topics
+    \item \textbf{Model training:} 5 topics (optimal), 20 passes, using Gensim library
+    \item \textbf{Coherence evaluation:} $C_v$ coherence score for model quality assessment \citep{mimno2011optimizing}
+\end{enumerate}
+
+\subsection{Ethical Considerations}
+
+This study analyzed publicly available data only. All user identifiers were removed prior to analysis. No direct contact with human subjects occurred. The research was conducted in accordance with platform terms of service and ethical guidelines for internet research \citep{zimmer2010but, salganik2019bit}.
+
+% =============================================================================
+% 4. RESULTS
+% =============================================================================
+\section{Results}
+
+\subsection{Sample Characteristics}
+
+The final analytical sample comprised 8,435 relevant records after filtering and deduplication from an initial pool of 221,764 collected records (3.8\% relevance rate).
+
+\subsubsection{Distribution by Platform}
+
+TikTok dominated the discussion of content concerns, comprising nearly half of all relevant records (Table~\ref{tab:platform_distribution}).
+
+\begin{table}[H]
+\centering
+\caption{Distribution of Relevant Records by Platform}
+\label{tab:platform_distribution}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Platform} & \textbf{n} & \textbf{\%} \\
+\midrule
+TikTok & 4,181 & 49.6 \\
+Social Media General & 1,654 & 19.6 \\
+Instagram & 1,011 & 12.0 \\
+YouTube & 941 & 11.2 \\
+Facebook & 648 & 7.7 \\
+\midrule
+\textbf{Total} & \textbf{8,435} & \textbf{100.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{platform_distribution.pdf}
+    \caption{Distribution of relevant records across platforms. TikTok dominates the discourse with 49.6\% of all content-concern-related discussions.}
+    \label{fig:platform_distribution}
+\end{figure}
+
+\subsubsection{Distribution by Data Source}
+
+YouTube comments provided the largest share of relevant records, followed by Google Play Store reviews (Table~\ref{tab:source_distribution}).
+
+\begin{table}[H]
+\centering
+\caption{Distribution of Relevant Records by Data Source}
+\label{tab:source_distribution}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Source} & \textbf{n} & \textbf{\%} \\
+\midrule
+YouTube Comments & 4,457 & 52.8 \\
+Google Play Store & 1,460 & 17.3 \\
+Apple App Store & 1,303 & 15.5 \\
+Reddit & 869 & 10.3 \\
+Trustpilot & 346 & 4.1 \\
+\midrule
+\textbf{Total} & \textbf{8,435} & \textbf{100.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Sentiment Analysis Results}
+
+\subsubsection{Overall Sentiment Distribution}
+
+The overall sentiment distribution revealed a polarized discourse with slightly more negative than positive sentiment (Table~\ref{tab:sentiment_overall}, Figure~\ref{fig:sentiment_distribution}).
+
+\begin{table}[H]
+\centering
+\caption{Overall Sentiment Distribution}
+\label{tab:sentiment_overall}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Sentiment} & \textbf{n} & \textbf{\%} \\
+\midrule
+Negative & 3,796 & 45.0 \\
+Positive & 3,567 & 42.3 \\
+Neutral & 1,072 & 12.7 \\
+\midrule
+\textbf{Total} & \textbf{8,435} & \textbf{100.0} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The mean VADER compound score was $M = -0.009$ ($SD = 0.618$), indicating slight overall negativity with high variance, characteristic of polarized opinions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{sentiment_distribution.pdf}
+    \caption{Overall sentiment distribution showing polarized discourse with 45.0\% negative, 42.3\% positive, and 12.7\% neutral sentiment.}
+    \label{fig:sentiment_distribution}
+\end{figure}
+
+\subsubsection{Sentiment by Platform}
+
+Platform-specific sentiment analysis revealed significant variations, with Instagram showing the most negative sentiment and TikTok showing slightly positive sentiment (Table~\ref{tab:sentiment_platform}, Figure~\ref{fig:sentiment_platform}).
+
+\begin{table}[H]
+\centering
+\caption{Sentiment Statistics by Platform}
+\label{tab:sentiment_platform}
+\begin{tabular}{lrrrrrrr}
+\toprule
+\textbf{Platform} & \textbf{n} & \textbf{Mean} & \textbf{SD} & \textbf{Min} & \textbf{Max} & \textbf{Q25} & \textbf{Q75} \\
+\midrule
+TikTok & 4,181 & 0.025 & 0.608 & $-1.00$ & 1.00 & $-0.51$ & 0.57 \\
+Social Media General & 1,654 & 0.007 & 0.627 & $-1.00$ & 1.00 & $-0.56$ & 0.57 \\
+YouTube & 941 & $-0.048$ & 0.604 & $-1.00$ & 1.00 & $-0.57$ & 0.44 \\
+Facebook & 648 & $-0.076$ & 0.624 & $-1.00$ & 1.00 & $-0.62$ & 0.48 \\
+Instagram & 1,011 & $-0.096$ & 0.639 & $-1.00$ & 1.00 & $-0.69$ & 0.46 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{sentiment_by_platform.pdf}
+    \caption{Sentiment comparison across platforms. Instagram exhibits the most negative sentiment ($M = -0.096$), while TikTok shows slightly positive sentiment ($M = 0.025$) despite having the highest discussion volume.}
+    \label{fig:sentiment_platform}
+\end{figure}
+
+\textbf{Key Finding:} Instagram exhibited the most negative sentiment regarding content concerns, while TikTok---despite receiving the most discussion---showed slightly positive overall sentiment.
+
+\subsubsection{Sentiment by Keyword Category}
+
+Analysis of sentiment by keyword category revealed that parental control discussions had the most negative sentiment, while algorithm-related discussions showed more positive sentiment (Table~\ref{tab:sentiment_keywords}).
+
+\begin{table}[H]
+\centering
+\caption{Sentiment by Keyword Category}
+\label{tab:sentiment_keywords}
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Category} & \textbf{With KW (n)} & \textbf{Mean} & \textbf{SD} & \textbf{Without KW Mean} & \textbf{Difference} \\
+\midrule
+Parental Controls & 399 & $-0.186$ & 0.557 & 0.026 & $-0.212$ \\
+Explicit Content & 210 & $-0.143$ & 0.568 & $-0.014$ & $-0.129$ \\
+Mental Health & 130 & $-0.011$ & 0.633 & $-0.035$ & 0.024 \\
+Age Concerns & 405 & 0.002 & 0.587 & $-0.047$ & 0.049 \\
+Algorithm & 457 & 0.088 & 0.612 & $-0.090$ & 0.178 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Sentiment by Inferred Age Group}
+
+Among records where age could be inferred from textual indicators, teens showed the most negative sentiment (Table~\ref{tab:sentiment_age}).
+
+\begin{table}[H]
+\centering
+\caption{Sentiment by Inferred Age Category}
+\label{tab:sentiment_age}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Age Category} & \textbf{n} & \textbf{Mean} & \textbf{SD} & \textbf{Q25--Q75} \\
+\midrule
+Teen (13--17) & 50 & $-0.186$ & 0.582 & $-0.67$ to 0.35 \\
+Adult (25--34) & 119 & 0.001 & 0.585 & $-0.47$ to 0.50 \\
+Parent (35+) & 22 & 0.047 & 0.661 & $-0.62$ to 0.72 \\
+Young Adult (18--24) & 23 & 0.232 & 0.560 & $-0.32$ to 0.74 \\
+Unknown & 1,205 & $-0.037$ & 0.592 & $-0.55$ to 0.48 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{sentiment_by_age.pdf}
+    \caption{Sentiment distribution by inferred age category. Teens show the most negative sentiment ($M = -0.186$), while young adults show the most positive ($M = 0.232$).}
+    \label{fig:sentiment_age}
+\end{figure}
+
+\subsection{Topic Modeling Results}
+
+LDA analysis identified five dominant themes in the discourse. Model selection was based on coherence score optimization (Table~\ref{tab:coherence}).
+
+\begin{table}[H]
+\centering
+\caption{Topic Model Coherence Scores}
+\label{tab:coherence}
+\begin{tabular}{cc}
+\toprule
+\textbf{Number of Topics} & \textbf{Coherence Score ($C_v$)} \\
+\midrule
+5 & \textbf{0.349} \\
+7 & 0.335 \\
+10 & 0.304 \\
+12 & 0.310 \\
+15 & 0.286 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The five identified topics and their top keywords are presented in Table~\ref{tab:topics}.
+
+\begin{table}[H]
+\centering
+\caption{LDA Topic Model Results: Five Identified Themes}
+\label{tab:topics}
+\small
+\begin{tabular}{clL{9cm}}
+\toprule
+\textbf{Topic} & \textbf{Label} & \textbf{Top Keywords (with weights)} \\
+\midrule
+1 & Child Safety \& Parental Concerns & people (0.022), kid (0.020), child (0.016), social (0.015), medium (0.015), parent (0.008), addiction (0.006), mental (0.006) \\
+\addlinespace
+2 & Algorithm \& Content Issues & content (0.027), post (0.013), algorithm (0.012), view (0.012), watch (0.010), show (0.009), platform (0.008), block (0.007) \\
+\addlinespace
+3 & Personal Usage Experiences & year (0.015), said (0.011), day (0.011), time (0.011), friend (0.007), feel (0.007), told (0.006), first (0.007) \\
+\addlinespace
+4 & Account Moderation \& Banning & account (0.038), reason (0.023), banned (0.016), ban (0.009), community (0.009), support (0.008), channel (0.007) \\
+\addlinespace
+5 & Mental Health \& Screen Time & time (0.013), social (0.008), brain (0.006), hour (0.006), dopamine (0.004), screen (0.005), attention (0.004) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Keyword Category Prevalence}
+
+Among the 8,435 relevant records, keyword category occurrence was as follows (Table~\ref{tab:keyword_prevalence}):
+
+\begin{table}[H]
+\centering
+\caption{Keyword Category Prevalence in Relevant Records}
+\label{tab:keyword_prevalence}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Category} & \textbf{n} & \textbf{\% of Relevant} \\
+\midrule
+Age Concerns & 1,791 & 21.2 \\
+Parental Controls & 1,554 & 18.4 \\
+Algorithm & 1,033 & 12.2 \\
+Explicit Content & 610 & 7.2 \\
+Mental Health & 353 & 4.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{keyword_category_analysis.pdf}
+    \caption{Keyword category prevalence showing age concerns (21.2\%) as the most discussed topic, followed by parental controls (18.4\%) and algorithm-related concerns (12.2\%).}
+    \label{fig:keyword_analysis}
+\end{figure}
+
+\textbf{Note:} Categories are not mutually exclusive; records may contain keywords from multiple categories.
+
+\subsection{Word Cloud Visualizations}
+
+Figure~\ref{fig:wordclouds} presents word clouds for overall content and platform-specific discussions, visualizing the most frequent terms in the discourse.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_all.pdf}
+        \caption{All platforms combined}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_tiktok.pdf}
+        \caption{TikTok}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_instagram.pdf}
+        \caption{Instagram}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_youtube.pdf}
+        \caption{YouTube}
+    \end{subfigure}
+
+    \caption{Word clouds showing frequent terms in content-concern discussions. Terms like ``kid,'' ``child,'' ``content,'' and ``algorithm'' appear prominently across platforms.}
+    \label{fig:wordclouds}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_positive.pdf}
+        \caption{Positive sentiment records}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_negative.pdf}
+        \caption{Negative sentiment records}
+    \end{subfigure}
+    \caption{Word clouds comparing positive and negative sentiment records, revealing distinct vocabulary patterns.}
+    \label{fig:wordclouds_sentiment}
+\end{figure}
+
+\subsection{Correlation Analysis}
+
+Figure~\ref{fig:correlation} shows the correlation heatmap between numerical variables in the dataset.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{correlation_heatmap.pdf}
+    \caption{Correlation heatmap showing relationships between engagement metrics, sentiment scores, and keyword category indicators.}
+    \label{fig:correlation}
+\end{figure}
+
+% =============================================================================
+% 5. DISCUSSION
+% =============================================================================
+\section{Discussion}
+
+\subsection{Principal Findings}
+
+This study examined public discourse surrounding content concerns on short-form video platforms through analysis of 8,435 relevant user-generated records from 221,764 collected. Several key findings emerged:
+
+\subsubsection{Finding 1: Polarized but Slightly Negative Discourse}
+
+The overall sentiment distribution (45\% negative, 42.3\% positive) indicates a deeply divided public opinion regarding platform content concerns. The slight negative skew ($M = -0.009$) suggests that users expressing concerns about content issues tend to frame their experiences negatively, though substantial positive discourse exists, potentially representing defensive reactions or satisfaction with platform features. This polarization aligns with broader societal debates about social media's role \citep{haidt2023social}.
+
+\subsubsection{Finding 2: Platform-Specific Sentiment Patterns}
+
+The finding that Instagram exhibited the most negative sentiment ($-0.096$) while TikTok showed slightly positive sentiment ($+0.025$) is noteworthy. This pattern may reflect:
+
+\begin{itemize}[leftmargin=*, itemsep=0.3em]
+    \item TikTok's more developed content moderation tools and parental controls \citep{tiktok2023safety}
+    \item Instagram's algorithmic integration of Reels into established user bases with different expectations \citep{instagram2023algorithm}
+    \item Demographic differences in platform user populations expressing concerns
+    \item Different expectations between native short-form platforms and those that added the feature later
+\end{itemize}
+
+\subsubsection{Finding 3: Child Safety as Dominant Concern}
+
+The prevalence of age-related concerns (21.2\% of relevant content) and the prominence of child-related terms in topic modeling confirm that parental and child safety concerns dominate public discourse. This aligns with regulatory attention and media coverage focusing on minor protection \citep{ofcom2023children, 5rights2021pathways}. The emergence of a distinct ``Child Safety \& Parental Concerns'' topic (Topic 1) underscores the centrality of this issue.
+
+\subsubsection{Finding 4: Algorithm Awareness and Criticism}
+
+The emergence of a distinct algorithm-focused topic (Topic 2) and the 12.2\% prevalence of algorithm-related keywords indicates significant public awareness of and concern about recommendation systems. Users explicitly discuss how ``For You'' pages expose them to unwanted content, supporting previous research on algorithmic content curation concerns \citep{pariser2011filter, ribeiro2020auditing}.
+
+\subsubsection{Finding 5: Teen Vulnerability}
+
+Among records with inferable age indicators, teens showed the most negative sentiment ($M = -0.186$), while young adults showed the most positive ($M = 0.232$). This pattern supports developmental theories suggesting differential vulnerability across age groups and aligns with concerns about adolescent mental health impacts \citep{twenge2018increases}.
+
+\subsection{Comparison with Prior Research}
+
+Table~\ref{tab:comparison_findings} compares our key findings with prior research:
+
+\begin{table}[H]
+\centering
+\caption{Comparison of Current Study Findings with Prior Research}
+\label{tab:comparison_findings}
+\small
+\begin{tabular}{L{3cm}L{5cm}L{5cm}}
+\toprule
+\textbf{Aspect} & \textbf{Prior Research} & \textbf{This Study} \\
+\midrule
+Overall effect & Small negative effect, $r = -0.08$ \citep{nguyen2025feeds} & 45\% negative sentiment; $M = -0.009$ \\
+\addlinespace
+Content specificity & Gap identified; few studies & Explicit content 7.2\% of concerns \\
+\addlinespace
+Age differences & Adolescents more vulnerable \citep{twenge2018increases} & Teens most negative ($M = -0.186$) \\
+\addlinespace
+Platform comparison & Limited multi-platform studies & Instagram most negative; TikTok positive \\
+\addlinespace
+Algorithm concerns & Growing awareness \citep{ribeiro2020auditing} & 12.2\% discuss algorithms explicitly \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Theoretical Implications}
+
+These findings contribute to several theoretical frameworks:
+
+\textbf{Uses and Gratifications Theory:} The polarized sentiment suggests that platforms simultaneously satisfy and frustrate user needs, with content concerns representing gratification barriers \citep{katz1973uses}.
+
+\textbf{Cultivation Theory:} The prominence of mental health discourse (Topic 5) and keywords like ``dopamine'' and ``brain rot'' indicates public internalization of media effects narratives \citep{gerbner1998cultivation}.
+
+\textbf{Social Learning Theory:} Concerns about children's exposure reflect parental awareness of modeling effects and content influence on developing minds \citep{bandura1977social}.
+
+\subsection{Practical Implications}
+
+\subsubsection{For Platform Developers}
+
+\begin{itemize}[leftmargin=*, itemsep=0.3em]
+    \item Invest in more granular content filtering options
+    \item Improve transparency in algorithmic recommendations
+    \item Strengthen age verification mechanisms beyond self-declaration
+    \item Develop clearer, more accessible parental control interfaces
+    \item Consider platform-specific interventions based on sentiment patterns
+\end{itemize}
+
+\subsubsection{For Parents and Educators}
+
+\begin{itemize}[leftmargin=*, itemsep=0.3em]
+    \item Engage in active mediation rather than restrictive-only approaches \citep{livingstone2017parental}
+    \item Utilize available parental control features
+    \item Discuss algorithmic content curation with young users
+    \item Be aware of platform-specific differences in content exposure
+\end{itemize}
+
+\subsubsection{For Policymakers}
+
+\begin{itemize}[leftmargin=*, itemsep=0.3em]
+    \item Consider platform-specific regulatory approaches given sentiment variations
+    \item Mandate algorithmic transparency requirements
+    \item Support digital literacy education initiatives
+    \item Require robust age verification for explicit content access
+\end{itemize}
+
+\subsection{Limitations}
+
+Several limitations should be acknowledged:
+
+\begin{enumerate}[leftmargin=*, itemsep=0.3em]
+    \item \textbf{Selection Bias:} Users who leave reviews or post about concerns may not represent typical platform users; those with strong opinions are overrepresented
+    \item \textbf{Temporal Scope:} Data represents a cross-sectional snapshot; longitudinal patterns are not captured
+    \item \textbf{Geographic Limitations:} English-language content dominates the sample, potentially underrepresenting South Asian perspectives despite the research focus
+    \item \textbf{Sentiment Analysis Constraints:} VADER may not capture nuanced, sarcastic, or non-English expressions
+    \item \textbf{Causal Inference:} This descriptive study cannot establish causal relationships between platform use and outcomes
+    \item \textbf{Age Inference:} Inferred age categories based on textual cues may be inaccurate
+\end{enumerate}
+
+\subsection{Future Research Directions}
+
+Future research should:
+
+\begin{itemize}[leftmargin=*, itemsep=0.3em]
+    \item Conduct primary survey research with diverse demographic samples, particularly in developing countries
+    \item Perform longitudinal tracking of content concern evolution
+    \item Investigate cultural variations in platform perceptions, especially South Asian contexts
+    \item Develop and test intervention studies for parental mediation strategies
+    \item Examine platform policy changes and their effects on user discourse
+    \item Apply more sophisticated NLP methods (transformer-based sentiment analysis, aspect-based sentiment analysis)
+    \item Collect actual content exposure data rather than relying on self-reported concerns
+\end{itemize}
+
+% =============================================================================
+% 6. CONCLUSION
+% =============================================================================
+\section{Conclusion}
+
+This large-scale secondary data analysis of 221,764 user-generated records reveals that public discourse surrounding short-form video platforms exhibits significant concern regarding content exposure, particularly for minors. The polarized sentiment patterns, platform-specific variations, and emergence of distinct thematic concerns highlight the complexity of the ``For You page problem.''
+
+Key conclusions include:
+
+\begin{enumerate}[leftmargin=*, itemsep=0.5em]
+    \item \textbf{Concern is widespread but contested:} Nearly equal proportions of negative (45\%) and positive (42.3\%) sentiment indicate ongoing debate about platform impacts
+
+    \item \textbf{Platform matters:} Instagram generates more negative discourse than TikTok despite TikTok's larger discussion volume, suggesting platform-specific user experiences warrant differentiated approaches
+
+    \item \textbf{Children are central to concerns:} Age-related content dominates the discourse (21.2\%), confirming the salience of child protection as a policy priority
+
+    \item \textbf{Algorithm awareness is growing:} Users increasingly recognize and critique recommendation systems' roles in content exposure, with 12.2\% explicitly discussing algorithms
+
+    \item \textbf{Mental health framing persists:} Discourse incorporates neurological and psychological language (``dopamine,'' ``brain rot,'' ``attention span''), indicating public engagement with scientific narratives about social media effects
+\end{enumerate}
+
+These findings provide empirical grounding for ongoing policy debates, platform design decisions, and parental guidance regarding short-form video consumption. As these platforms continue to evolve, monitoring public discourse offers valuable insights into emerging concerns and user needs. The identification of content-specific effects as a research gap, now partially addressed by this study, should encourage further investigation into how particular types of content---not just platform usage in general---affect users across different age groups and cultural contexts.
+
+% =============================================================================
+% ACKNOWLEDGMENTS
+% =============================================================================
+\section*{Acknowledgments}
+
+The author thanks the open-source community for providing the data collection and analysis tools used in this research. This study was conducted as independent research with no external funding.
+
+% =============================================================================
+% DATA AVAILABILITY
+% =============================================================================
+\section*{Data Availability Statement}
+
+The anonymized dataset and analysis scripts are available upon request from the corresponding author. Raw data cannot be shared due to platform terms of service, but collection scripts are provided for replication.
+
+% =============================================================================
+% CONFLICT OF INTEREST
+% =============================================================================
+\section*{Conflict of Interest}
+
+The author declares no conflict of interest.
+
+% =============================================================================
+% REFERENCES
+% =============================================================================
+\newpage
+\bibliography{references}
+
+% =============================================================================
+% APPENDICES
+% =============================================================================
+\newpage
+\begin{appendices}
+
+\section{Supplementary Word Clouds by Keyword Category}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_explicit_content.pdf}
+        \caption{Explicit content discussions}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_age_concerns.pdf}
+        \caption{Age-related concerns}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_mental_health.pdf}
+        \caption{Mental health discussions}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_algorithm.pdf}
+        \caption{Algorithm-related discussions}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{wordcloud_parental_controls.pdf}
+        \caption{Parental control discussions}
+    \end{subfigure}
+
+    \caption{Word clouds for each keyword category showing distinct vocabulary patterns.}
+    \label{fig:appendix_wordclouds}
+\end{figure}
+
+\section{Data Collection Code Availability}
+
+All data collection and analysis scripts are available at: [GitHub Repository Link]
+
+Key scripts include:
+\begin{itemize}
+    \item \texttt{01a\_scrape\_playstore.py} -- Google Play Store review collection
+    \item \texttt{01b\_scrape\_appstore.py} -- Apple App Store review collection
+    \item \texttt{01c\_scrape\_reddit.py} -- Reddit post collection
+    \item \texttt{01h\_combine\_all\_data.py} -- Data combination and standardization
+    \item \texttt{03\_sentiment\_analysis.py} -- VADER sentiment analysis
+    \item \texttt{04\_topic\_modeling.py} -- LDA topic modeling
+    \item \texttt{05\_visualizations.py} -- Figure generation
+\end{itemize}
+
+\section{Interactive Topic Model Visualization}
+
+An interactive pyLDAvis visualization of the topic model is available at: \\
+\texttt{outputs/topics/lda\_visualization\_20260116\_201917.html}
+
+\end{appendices}
+
+\end{document}

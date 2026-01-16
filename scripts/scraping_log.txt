@@ -1,0 +1,144 @@
+2026-01-16 19:02:28,335 - INFO - Running quick test: tiktok, 100 reviews
+2026-01-16 19:02:28,373 - INFO - Scraping Play Store reviews for tiktok (np)...
+2026-01-16 19:02:29,179 - INFO - Scraped 100 reviews for tiktok (np)
+2026-01-16 19:02:29,180 - INFO - 
+Sample review:
+2026-01-16 19:02:29,180 - INFO - Filtering 100 reviews for relevant keywords...
+2026-01-16 19:02:29,232 - INFO - Found 2 relevant reviews (2.0%)
+2026-01-16 19:02:29,234 - INFO - 
+Sample RELEVANT review:
+2026-01-16 19:02:29,234 - INFO - Done!
+2026-01-16 19:17:03,488 - INFO - ==================================================
+2026-01-16 19:17:03,488 - INFO - SCRAPING GOOGLE PLAY STORE
+2026-01-16 19:17:03,488 - INFO - ==================================================
+2026-01-16 19:17:03,527 - INFO - Scraping Play Store reviews for tiktok (np)...
+2026-01-16 19:17:04,891 - INFO - Scraped 1000 reviews for tiktok (np)
+2026-01-16 19:17:06,891 - INFO - Scraping Play Store reviews for tiktok (in)...
+2026-01-16 19:17:08,277 - INFO - Scraped 1000 reviews for tiktok (in)
+2026-01-16 19:17:10,278 - INFO - Scraping Play Store reviews for instagram (np)...
+2026-01-16 19:17:11,485 - INFO - Scraped 1000 reviews for instagram (np)
+2026-01-16 19:17:13,486 - INFO - Scraping Play Store reviews for instagram (in)...
+2026-01-16 19:17:15,898 - INFO - Scraped 1000 reviews for instagram (in)
+2026-01-16 19:17:17,898 - INFO - Scraping Play Store reviews for youtube (np)...
+2026-01-16 19:17:19,515 - INFO - Scraped 1000 reviews for youtube (np)
+2026-01-16 19:17:21,516 - INFO - Scraping Play Store reviews for youtube (in)...
+2026-01-16 19:17:22,861 - INFO - Scraped 1000 reviews for youtube (in)
+2026-01-16 19:17:24,862 - INFO - Scraping Play Store reviews for facebook (np)...
+2026-01-16 19:17:26,252 - INFO - Scraped 1000 reviews for facebook (np)
+2026-01-16 19:17:28,253 - INFO - Scraping Play Store reviews for facebook (in)...
+2026-01-16 19:17:29,826 - INFO - Scraped 1000 reviews for facebook (in)
+2026-01-16 19:17:31,827 - INFO - ==================================================
+2026-01-16 19:17:31,827 - INFO - SCRAPING APPLE APP STORE
+2026-01-16 19:17:31,828 - INFO - ==================================================
+2026-01-16 19:17:31,828 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:17:33,830 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:17:35,832 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:17:37,834 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:17:39,835 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:17:41,837 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:17:43,839 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:17:45,841 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:17:47,846 - INFO - Total reviews scraped: 8000
+2026-01-16 19:17:47,846 - INFO - Filtering 8000 reviews for relevant keywords...
+2026-01-16 19:17:49,656 - INFO - Found 320 relevant reviews (4.0%)
+2026-01-16 19:17:49,726 - INFO - Saved all reviews to: ../data/raw/all_reviews_20260116_191749.csv
+2026-01-16 19:17:49,731 - INFO - Saved 320 relevant reviews to: ../data/raw/relevant_reviews_20260116_191749.csv
+2026-01-16 19:17:49,731 - INFO - 
+==================================================
+2026-01-16 19:17:49,731 - INFO - SCRAPING SUMMARY
+2026-01-16 19:17:49,731 - INFO - ==================================================
+2026-01-16 19:17:49,731 - INFO - 
+Reviews by App:
+2026-01-16 19:17:49,732 - INFO - 
+Reviews by Platform:
+2026-01-16 19:17:49,733 - INFO - 
+Reviews by Country:
+2026-01-16 19:17:49,734 - INFO - 
+Reviews by Keyword Category:
+2026-01-16 19:17:49,734 - INFO -   explicit_content: 54 (0.7%)
+2026-01-16 19:17:49,734 - INFO -   age_concerns: 98 (1.2%)
+2026-01-16 19:17:49,735 - INFO -   mental_health: 28 (0.4%)
+2026-01-16 19:17:49,735 - INFO -   algorithm: 88 (1.1%)
+2026-01-16 19:17:49,735 - INFO -   parental_controls: 86 (1.1%)
+2026-01-16 19:17:49,735 - INFO - 
+Total Relevant Reviews: 320 (4.0%)
+2026-01-16 19:17:49,735 - INFO - Done!
+2026-01-16 19:24:05,949 - INFO - ==================================================
+2026-01-16 19:24:05,950 - INFO - SCRAPING GOOGLE PLAY STORE
+2026-01-16 19:24:05,950 - INFO - ==================================================
+2026-01-16 19:24:05,990 - INFO - Scraping Play Store reviews for tiktok (np)...
+2026-01-16 19:24:16,551 - INFO - Scraped 10000 reviews for tiktok (np)
+2026-01-16 19:24:18,558 - INFO - Scraping Play Store reviews for tiktok (in)...
+2026-01-16 19:24:27,593 - INFO - Scraped 10000 reviews for tiktok (in)
+2026-01-16 19:24:29,597 - INFO - Scraping Play Store reviews for tiktok (us)...
+2026-01-16 19:24:38,753 - INFO - Scraped 10000 reviews for tiktok (us)
+2026-01-16 19:24:40,786 - INFO - Scraping Play Store reviews for tiktok (uk)...
+2026-01-16 19:24:49,642 - INFO - Scraped 10000 reviews for tiktok (uk)
+2026-01-16 19:24:51,652 - INFO - Scraping Play Store reviews for instagram (np)...
+2026-01-16 19:24:59,440 - INFO - Scraped 10000 reviews for instagram (np)
+2026-01-16 19:25:01,447 - INFO - Scraping Play Store reviews for instagram (in)...
+2026-01-16 19:25:09,554 - INFO - Scraped 10000 reviews for instagram (in)
+2026-01-16 19:25:11,587 - INFO - Scraping Play Store reviews for instagram (us)...
+2026-01-16 19:25:19,446 - INFO - Scraped 10000 reviews for instagram (us)
+2026-01-16 19:25:21,452 - INFO - Scraping Play Store reviews for instagram (uk)...
+2026-01-16 19:25:29,504 - INFO - Scraped 10000 reviews for instagram (uk)
+2026-01-16 19:25:31,510 - INFO - Scraping Play Store reviews for youtube (np)...
+2026-01-16 19:25:40,235 - INFO - Scraped 10000 reviews for youtube (np)
+2026-01-16 19:25:42,267 - INFO - Scraping Play Store reviews for youtube (in)...
+2026-01-16 19:25:51,780 - INFO - Scraped 10000 reviews for youtube (in)
+2026-01-16 19:25:53,786 - INFO - Scraping Play Store reviews for youtube (us)...
+2026-01-16 19:26:02,257 - INFO - Scraped 10000 reviews for youtube (us)
+2026-01-16 19:26:04,261 - INFO - Scraping Play Store reviews for youtube (uk)...
+2026-01-16 19:26:12,556 - INFO - Scraped 10000 reviews for youtube (uk)
+2026-01-16 19:26:14,560 - INFO - Scraping Play Store reviews for facebook (np)...
+2026-01-16 19:26:23,687 - INFO - Scraped 10000 reviews for facebook (np)
+2026-01-16 19:26:25,696 - INFO - Scraping Play Store reviews for facebook (in)...
+2026-01-16 19:26:33,872 - INFO - Scraped 10000 reviews for facebook (in)
+2026-01-16 19:26:35,882 - INFO - Scraping Play Store reviews for facebook (us)...
+2026-01-16 19:26:44,807 - INFO - Scraped 10000 reviews for facebook (us)
+2026-01-16 19:26:46,813 - INFO - Scraping Play Store reviews for facebook (uk)...
+2026-01-16 19:26:55,160 - INFO - Scraped 10000 reviews for facebook (uk)
+2026-01-16 19:26:57,170 - INFO - ==================================================
+2026-01-16 19:26:57,170 - INFO - SCRAPING APPLE APP STORE
+2026-01-16 19:26:57,170 - INFO - ==================================================
+2026-01-16 19:26:57,171 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:26:59,173 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:01,175 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:03,177 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:05,180 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:07,182 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:09,184 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:11,186 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:13,188 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:15,190 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:17,192 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:19,194 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:21,196 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:23,197 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:25,200 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:27,202 - ERROR - app-store-scraper not installed. Run: pip install app-store-scraper
+2026-01-16 19:27:29,222 - INFO - Total reviews scraped: 160000
+2026-01-16 19:27:29,223 - INFO - Filtering 160000 reviews for relevant keywords...
+2026-01-16 19:27:46,695 - INFO - Found 5848 relevant reviews (3.7%)
+2026-01-16 19:27:47,573 - INFO - Saved all reviews to: ../data/raw/all_reviews_20260116_192746.csv
+2026-01-16 19:27:47,619 - INFO - Saved 5848 relevant reviews to: ../data/raw/relevant_reviews_20260116_192746.csv
+2026-01-16 19:27:47,619 - INFO - 
+==================================================
+2026-01-16 19:27:47,619 - INFO - SCRAPING SUMMARY
+2026-01-16 19:27:47,619 - INFO - ==================================================
+2026-01-16 19:27:47,619 - INFO - 
+Reviews by App:
+2026-01-16 19:27:47,625 - INFO - 
+Reviews by Platform:
+2026-01-16 19:27:47,630 - INFO - 
+Reviews by Country:
+2026-01-16 19:27:47,635 - INFO - 
+Reviews by Keyword Category:
+2026-01-16 19:27:47,635 - INFO -   explicit_content: 876 (0.5%)
+2026-01-16 19:27:47,635 - INFO -   age_concerns: 1684 (1.1%)
+2026-01-16 19:27:47,635 - INFO -   mental_health: 528 (0.3%)
+2026-01-16 19:27:47,635 - INFO -   algorithm: 1856 (1.2%)
+2026-01-16 19:27:47,635 - INFO -   parental_controls: 1632 (1.0%)
+2026-01-16 19:27:47,636 - INFO - 
+Total Relevant Reviews: 5848 (3.7%)
+2026-01-16 19:27:47,641 - INFO - Done!

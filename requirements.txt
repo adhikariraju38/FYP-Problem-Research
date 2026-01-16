@@ -1,0 +1,56 @@
+# The 'For You' Page Problem Research
+# Dependencies for data collection, analysis, and visualization
+
+# Data Collection - App Store Scrapers
+google-play-scraper>=1.2.4
+# NOTE: app-store-scraper has dependency conflicts. Install separately if needed:
+# pip install app-store-scraper==0.3.5 --no-deps
+# Or use alternative: pip install itunes-app-scraper
+
+# Social Media APIs
+praw>=7.7.1                    # Reddit API
+tweepy>=4.14.0                 # Twitter API
+# snscrape removed - deprecated, use tweepy instead
+youtube-comment-downloader>=0.1.68
+
+# Web Scraping (backup)
+beautifulsoup4>=4.12.2
+selenium>=4.15.0
+requests>=2.28.0
+
+# Data Processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Natural Language Processing
+nltk>=3.8.1
+spacy>=3.7.0
+textblob>=0.17.1
+vaderSentiment>=3.3.2          # Sentiment analysis
+
+# Topic Modeling
+gensim>=4.3.2                  # LDA topic modeling
+pyLDAvis>=3.4.1                # LDA visualization
+
+# Machine Learning (for classification)
+scikit-learn>=1.3.0
+
+# Visualization
+matplotlib>=3.8.0
+seaborn>=0.13.0
+plotly>=5.18.0
+wordcloud>=1.9.2
+
+# Statistical Analysis
+scipy>=1.11.0
+statsmodels>=0.14.0
+
+# Utilities
+tqdm>=4.66.0                   # Progress bars
+python-dateutil>=2.8.2
+openpyxl>=3.1.2                # Excel support
+langdetect>=1.0.9              # Language detection
+
+# Jupyter (optional, for notebooks)
+jupyter>=1.0.0
+ipykernel>=6.25.0
