@@ -4,7 +4,7 @@
 
 **A Secondary Data Analysis from Nepal's Developing Digital Economy**
 
-[![arXiv](https://img.shields.io/badge/arXiv-Preprint-red)](https://arxiv.org/)
+[![DOI](https://img.shields.io/badge/DOI-10.31234/osf.io/8rbhq-blue)](https://doi.org/10.31234/osf.io/8rbhq_v1)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.8+-green.svg)](https://python.org)
 
@@ -52,12 +52,6 @@ FYP-Problem-Research/
 │   ├── figures/                # Publication-ready figures (PDF/PNG)
 │   ├── topics/                 # LDA model and visualization
 │   └── reports/                # Analysis reports
-├── paper/
-│   ├── draft_v1.md             # Markdown draft
-│   └── latex/                  # LaTeX source for arXiv
-│       ├── main.tex            # Full journal version
-│       ├── arxiv_submission.tex # arXiv version
-│       └── references.bib      # BibTeX references
 ├── requirements.txt
 └── README.md
 ```
@@ -107,13 +101,6 @@ Or run steps individually:
 python 03_sentiment_analysis.py
 python 04_topic_modeling.py
 python 05_visualizations.py
-```
-
-### 4. Compile Paper
-
-```bash
-cd paper/latex
-pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 ```
 
 ---
@@ -213,27 +200,18 @@ This research is particularly motivated by the unique challenges facing Nepal an
 
 ## Citation
 
+**Preprint available at:** [https://doi.org/10.31234/osf.io/8rbhq_v1](https://doi.org/10.31234/osf.io/8rbhq_v1)
+
 ```bibtex
-@article{fyp2026problem,
-  author  = {[Author Name]},
+@article{yadav2026fypproblem,
+  author  = {Yadav, Raju Kumar and Yadav, Safalta Kumari},
   title   = {The "For You" Page Problem: Explicit Content Exposure and
              Mental Health Concerns in Short-Form Video Platforms},
-  journal = {[Target Journal]},
   year    = {2026},
-  note    = {A Secondary Data Analysis from Nepal's Developing Digital Economy}
+  doi     = {10.31234/osf.io/8rbhq_v1},
+  note    = {PsyArXiv Preprint. A Secondary Data Analysis from Nepal's Developing Digital Economy}
 }
 ```
-
----
-
-## Target Publications
-
-| Tier | Journal | Impact Factor |
-|------|---------|---------------|
-| 1 | Computers in Human Behavior | 9.9 |
-| 1 | Cyberpsychology, Behavior, and Social Networking | 6.6 |
-| 2 | Journal of Nepal Health Research Council | Free |
-| 2 | Frontiers in Psychology | Fee waiver available |
 
 ---
 
@@ -251,8 +229,9 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 ## Contact
 
-- **Author:** [Author Name]
-- **Email:** notrajuyadav@gmail.com
+- **Authors:**
+  - Raju Kumar Yadav (076bct100.raju@pcampus.edu.np)
+  - Safalta Kumari Yadav (076bag034@ioepc.edu.np)
 - **Location:** Kathmandu, Nepal
 
 ---

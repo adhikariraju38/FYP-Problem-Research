@@ -45,16 +45,17 @@ env/
 .DS_Store
 Thumbs.db
 
-# Data files (too large for git)
-data/raw/*.csv
-data/raw/*.json
+# Data files (raw data should not be open source)
+data/raw/
 data/processed/*_large_*.csv
 *.pkl
 *.pickle
 
 # Keep directory structure
-!data/raw/.gitkeep
 !data/processed/.gitkeep
+
+# Paper (submitted to psyArxiv - DOI: 10.31234/osf.io/8rbhq_v1)
+paper/
 
 # Logs
 *.log
