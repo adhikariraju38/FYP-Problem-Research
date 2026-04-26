@@ -14,7 +14,7 @@ tweepy>=4.14.0                 # Twitter API
 youtube-comment-downloader>=0.1.68
 
 # Web Scraping (backup)
-beautifulsoup4>=4.12.2
+beautifulsoup4>=4.14.3
 selenium>=4.15.0
 requests>=2.28.0
 
