@@ -46,7 +46,7 @@ scipy>=1.11.0
 statsmodels>=0.14.0
 
 # Utilities
-tqdm>=4.66.0                   # Progress bars
+tqdm>=4.67.3                   # Progress bars
 python-dateutil>=2.8.2
 openpyxl>=3.1.2                # Excel support
 langdetect>=1.0.9              # Language detection
