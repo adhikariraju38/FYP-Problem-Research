@@ -9,7 +9,7 @@ google-play-scraper>=1.2.4
 
 # Social Media APIs
 praw>=7.7.1                    # Reddit API
-tweepy>=4.14.0                 # Twitter API
+tweepy>=4.16.0                 # Twitter API
 # snscrape removed - deprecated, use tweepy instead
 youtube-comment-downloader>=0.1.68
 
